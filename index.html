@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <div class="frame">
+            <div class="casino">
+
+            </div>
+            <div class="cayo">
+
+            </div>
+        </div>
+    </body>
+    <style media="screen">
+        body
+        {
+            background-color: black;
+            margin: 0;
+            z-index: 0;
+        }
+        .frame
+        {
+            position: relative;
+            width: 95vw;
+            height: 90vh;
+            margin: 5vh 2.5vw 5vh 2.5vw;
+            top: 0px;
+            left: 0px;
+            overflow: hidden;
+        }
+        .frame .casino, .frame .cayo
+        {
+            width: 49%;
+            height: 100%;
+            cursor: pointer;
+            transition: width ease-in-out 0.3s, height ease-in-out 0.3s, clip-path ease-in-out 0.3s,
+                        top ease-in-out 0.3s, left ease-in-out 0.3s;
+            background-repeat: no-repeat;
+            position: absolute;
+            clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
+            background-color: transparent;
+        }
+        .frame .casino
+        {
+            background-image: url("img/casino/target/art.jpg");
+            background-position: 63% 70%;
+            background-size: 340%;
+            top: 0px; left: 0px;
+            z-index: 2;
+        }
+        .frame .casino.expanded
+        {
+            width: 90%;
+            clip-path: polygon(0 0, 80% 0%, 100% 100%, 0% 100%);
+            z-index: 2;
+        }
+        .frame .casino.contracted
+        {
+            left: -20%;
+            clip-path: polygon(0 0, 100% 0, 80% 100%, 0 100%);
+        }
+        .frame .cayo
+        {
+            background-image: url("img/cayo/gta-online-cayo-perico-heist-pg.jpg");
+            background-position: 50% 40%;
+            top: 0px; left: 50%;
+            z-index: 1;
+        }
+        .frame .cayo.contracted
+        {
+            left: 70%;
+            clip-path: polygon(7% 0, 100% 0, 100% 100%, 43.7% 100%);
+        }
+        .frame .cayo.expanded
+        {
+            width: 90%;
+            left: 20%;
+            clip-path: polygon(11.2% 0, 100% 0, 100% 100%, 0.7% 100%);
+        }
+    </style>
+    <script type="text/javascript">
+        /*
+            setup heist selection frames
+        */
+        let casinoFrame = document.querySelector(".frame .casino");
+        let cayoFrame = document.querySelector(".frame .cayo");
+
+        casinoFrame.addEventListener("mouseover", function(event)
+
+        {
+            casinoFrame.classList.add("expanded");
+            casinoFrame.classList.remove("contracted");
+
+            cayoFrame.classList.add("contracted")
+            cayoFrame.classList.remove("expanded")
+        });
+        casinoFrame.addEventListener("mouseout", function(event)
+        {
+            casinoFrame.classList.remove("expanded");
+            cayoFrame.classList.remove("contracted");
+        });
+
+        cayoFrame.addEventListener("mouseover", function(event)
+        {
+            cayoFrame.classList.add("expanded");
+            cayoFrame.classList.remove("contracted");
+
+            casinoFrame.classList.add("contracted")
+            casinoFrame.classList.remove("expanded")
+        });
+        cayoFrame.addEventListener("mouseout", function(event)
+        {
+            cayoFrame.classList.remove("expanded");
+            casinoFrame.classList.remove("contracted");
+        });
+    </script>
+</html>
