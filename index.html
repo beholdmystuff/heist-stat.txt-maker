@@ -45,6 +45,7 @@
                 background-repeat: no-repeat;
                 background-position: center;
                 background-size: 23vw;
+                pointer-events: none;
             }
 
             .hidden
@@ -236,6 +237,15 @@
     <script type="text/javascript" src="js/cayo.js"></script>
     <script type="text/javascript" src="js/contract.js"></script>
     <script type="text/javascript">
+        /* URLS */
+        let urls =
+        {
+            doomsday: "https://beholdmystuff.github.io/doomsday-stattext-maker/",
+            casino: "https://beholdmystuff.github.io/casino-stattext-maker/",
+            cayo: "https://beholdmystuff.github.io/perico-stattext-maker/",
+            contract: "https://beholdmystuff.github.io/contract-stattext-maker/"
+        };
+
         /*
             setup heist selection cards
         */
@@ -273,7 +283,10 @@
 
             contractCard.classList.remove("contracted");
         });
-        doomsdayCard.addEventListener("click", doomsday.openFrame);
+        doomsdayCard.addEventListener("click", function(event)
+        {
+            window.location = urls.doomsday;
+        });
 
         /* CASINO CARD */
         casinoCard.addEventListener("mouseover", function(event)
@@ -303,7 +316,10 @@
 
             contractCard.classList.remove("contracted");
         });
-        casinoCard.addEventListener("click", casino.openFrame);
+        casinoCard.addEventListener("click", function(event)
+        {
+            window.location = urls.casino;
+        });
 
         /* CAYO CARD */
         cayoCard.addEventListener("mouseover", function(event)
@@ -331,7 +347,10 @@
 
             contractCard.classList.remove("contracted");
         });
-        cayoCard.addEventListener("click", cayo.open);
+        cayoCard.addEventListener("click", function(event)
+        {
+            window.location = urls.cayo;
+        });
 
         /* CONTRACT CARD */
         contractCard.addEventListener("mouseover", function(event)
@@ -360,6 +379,9 @@
 
             contractCard.classList.remove("expanded");
         });
-        contractCard.addEventListener("click", contract.openFrame);
+        contractCard.addEventListener("click", function(event)
+        {
+            window.location = urls.contract;
+        });
     </script>
 </html>
