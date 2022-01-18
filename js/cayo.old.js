@@ -33,7 +33,6 @@ let settings =
 {
     primary: 1, //cayo.primary.loot array id
     difficulty: "normal", //cayo.difficulty
-    vehicleValue: 0,
     takeOfficeSafe: true,
     missionsBinary: 1+1024+2048+512, // gather intel + mandatory cutter + cloner + torch
     pois: 16384+65536, //power station + control tower
@@ -46,7 +45,8 @@ let settings =
     islandCoke: 0,
     islandGold: 0,
     islandWeed: 0,
-    defaultLootPrice: false
+    defaultLootPrice: false,
+    defaultLootPlacement: false
 };
 
 /* FUNCTIONALITY */

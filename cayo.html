@@ -1,0 +1,260 @@
+<!-- TUTORIAL OVERLAY -->
+<div id="overlay">
+    <div class="statTextOperations arrowLeft">Export your stat.txt and place it next to gtahaxui.exe.</div>
+    <div class="setHeistOptions arrowLeft">Set your options here.</div>
+    <div class="proTip">Pro tips:</br> - Be sure to pay setup fee in your submarine.</br> - When bugged, call Pavel to cancel the heist.</div>
+    <div class="primaryDisplay arrowRight">Your primary loot price.</div>
+    <div class="enterScoreLimit arrowRight">Game limits how much heist can give in total.</div>
+    <div class="selectSafe arrowRight">Include El Rubio's safe by default. Disable if you skip office safe.</div>
+    <div class="calculateCuts arrowLeft">Calculator needs player </br>cuts to maximize values.</div>
+    <div class="zoomInOut">Use +/- or Shift+Mouse Wheel to zoom in or out.</div>
+    <div class="enterTakeLimit arrowRight">Player cut has limit too.</br>Also this is how much</br>highest % cut player will</br> get.</div>
+    <div class="selectTruckLocation arrowLeft">Click any truck icon to select its location.</div>
+    <div class="selectLoot">Use Island and Compound maps</br>to select secondary loot spots.</div>
+    <div class="selectPrimary arrowLeft">Click to open loot selector, click to select primary loot.</div>
+    <div class="calculatorAssumption">Calculator assumes every player</br>will 100% fill their bag with loot.</div>
+    <div class="moneyDisplay arrowLeft">Your calculated heist take will be displayed here.</div>
+    <div class="selectDifficulty arrowRight">Toggle Normal or Hard Mode with this button.</div>
+    <div id="overlayClickZone"></div>
+</div>
+
+<!-- PAGE BACKGROUND -->
+<div id="main"></div>
+
+<!-- SETUP -->
+<div id="setupContainer">
+    <div id="setupCategories">
+        <div id="approachVehiclesCategory" class="setupCategory"><div class="checkbox"></div><span>Approach Vehicles</span></div>
+        <div id="weaponCategory" class="setupCategory"><div class="checkbox"></div><span>Weapons</span></div>
+        <div id="disruptionCategory" class="setupCategory"><div class="checkbox"></div><span>Disruption</span></div>
+        <div id="equipmentCategory" class="setupCategory"><div class="checkbox"></div><span>Equipment</span></div>
+        <!-- <div id="islandLootCategory" class="setupCategory"><div class="checkbox"></div><span>Island Loot</span></div>
+        <div id="compoundLootCategory" class="setupCategory"><div class="checkbox"></div><span>Compound Loot</span></div> -->
+        <div id="takeCategory" class="setupCategory"><div class="checkbox"></div><span>Player Take Calculator</span></div>
+    </div>
+    <div id="approachVehiclesContainer" class="setupCategoryContainer hidden">
+        <div class="backButton"> &lt; Approach Vehicles</div>
+        <div id="vehicleKosatka" class="setupCategory" bit="1"><div class="checkbox"></div><span>Submarine: Kosatka</span></div>
+        <div id="vehicleAlkonost" class="setupCategory" bit="2"><div class="checkbox"></div><span>Plane: Alkonost</span></div>
+        <div id="vehicleVelum" class="setupCategory" bit="3"><div class="checkbox"></div><span>Plane: Velum</span></div>
+        <div id="vehicleAnnihilator" class="setupCategory" bit="4"><div class="checkbox"></div><span>Helicopter: Stealth Annihilator</span></div>
+        <div id="vehiclePatrolBoat" class="setupCategory" bit="5"><div class="checkbox"></div><span>Boat: Patrol Boat</span></div>
+        <div id="vehicleLongfin" class="setupCategory" bit="6"><div class="checkbox"></div><span>Boat: Longfin</span></div>
+    </div>
+    <div id="weaponContainer" class="setupCategoryContainer hidden">
+        <div class="backButton"> &lt; Weapons</div>
+        <div id="weaponAggressor" class="setupCategory" int="1"><div class="checkbox"></div><span>Aggressor</span></div>
+        <div id="weaponConspirator" class="setupCategory" int="2"><div class="checkbox"></div><span>Conspirator</span></div>
+        <div id="weaponCrackshot" class="setupCategory" int="3"><div class="checkbox"></div><span>Crackshot</span></div>
+        <div id="weaponSaboteur" class="setupCategory" int="4"><div class="checkbox"></div><span>Saboteur</span></div>
+        <div id="weaponMarksman" class="setupCategory" int="5"><div class="checkbox"></div><span>Marksman</span></div>
+        <div id="weaponSuppressors" class="setupCategory" bit="12"><div class="checkbox"></div><span>Suppressors</span></div>
+    </div>
+    <div id="disruptionContainer" class="setupCategoryContainer hidden">
+        <div class="backButton"> &lt; Disruption</div>
+        <div id="disruptionWeapons" class="setupCategory" bit="13"><div class="checkbox"></div><span>Weapons</span></div>
+        <div id="disruptionArmor" class="setupCategory" bit="14"><div class="checkbox"></div><span>Armor</span></div>
+        <div id="disruptionAirSupport" class="setupCategory" bit="15"><div class="checkbox"></div><span>Air Support</span></div>
+        <div id="disruptionPoison" class="setupCategory" bit="13"><div class="checkbox"></div><span>Cutting Powder</span></div>
+    </div>
+    <div id="equipmentContainer" class="setupCategoryContainer hidden">
+        <div class="backButton"> &lt; Equipment</div>
+        <div id="equipmentDemoCharges" class="setupCategory" bit="8"><div class="checkbox"></div><span>Demolition Charges</span></div>
+        <!-- <div id="equipmentTorch" class="setupCategory" bit="9"><div class="checkbox"></div><span>Cutting Torch</span></div> -->
+    </div>
+    <!-- <div id="islandLootContainer" class="setupCategoryContainer hidden">
+        <div class="backButton"> &lt; Island Loot</div>
+        <div id="islandLootCash" class="setupCategory"><div class="checkbox"></div><span>Cash</span></div>
+        <div id="islandLootCoke" class="setupCategory"><div class="checkbox"></div><span>Coke</span></div>
+        <div id="islandLootGold" class="setupCategory"><div class="checkbox"></div><span>Gold</span></div>
+        <div id="islandLootWeed" class="setupCategory"><div class="checkbox"></div><span>Weed</span></div>
+    </div>
+    <div id="compoundLootContainer" class="setupCategoryContainer hidden">
+        <div class="backButton"> &lt; Compund Loot</div>
+        <div id="compoundLootCash" class="setupCategory"><div class="checkbox"></div><span>Cash</span></div>
+        <div id="compoundLootCoke" class="setupCategory"><div class="checkbox"></div><span>Coke</span></div>
+        <div id="compoundLootGold" class="setupCategory"><div class="checkbox"></div><span>Gold</span></div>
+        <div id="compoundLootPainting" class="setupCategory"><div class="checkbox"></div><span>Painting</span></div>
+        <div id="compoundLootWeed" class="setupCategory"><div class="checkbox"></div><span>Weed</span></div>
+    </div> -->
+    <div id="takeContainer" class="setupCategoryContainer hidden">
+        <div class="backButton"> &lt; Player Take Calculator</div>
+        <div id="teamsize" class="setupCategory"><span>Team Size</span><input class="teamSize" type="number" value="1" min="1" max="4"></div>
+        <div id="playerHost" class="setupCategory playerTake"><span>Host</span><input class="playerCut" playerid="1" type="number" value="100" min="15" max="100" step="5"></div>
+        <div id="player2" class="setupCategory playerTake hidden"><span>Player 2</span><input class="playerCut" playerid="2" type="number" value="15" min="15" max="100" step="5"></div>
+        <div id="player3" class="setupCategory playerTake hidden"><span>Player 3</span><input class="playerCut" playerid="3" type="number" value="15" min="15" max="100" step="5"></div>
+        <div id="player4" class="setupCategory playerTake hidden"><span>Player 4</span><input class="playerCut" playerid="4" type="number" value="15" min="15" max="100" step="5"></div>
+    </div>
+</div>
+
+<!-- PRIMARY LOOT SELECTOR -->
+<div id="lootFrame">
+    <div id="lootSelector" class="hidden">
+        <div class="lootObject lootDefault" title="Game's Pick"></div>
+        <div class="lootObject lootTequilla" title="Sinsimito Tequilla"></div>
+        <div class="lootObject lootNecklace" title="Ruby Necklace"></div>
+        <div class="lootObject lootBonds" title="Bearer Bonds"></div>
+        <div class="lootObject lootDiamond" title="Pink Diamond"></div>
+        <div class="lootObject lootPanther" title="Panther Statue"></div>
+        <div class="lootObject lootFiles" title="Minimadrazzo Files"></div>
+    </div>
+</div>
+
+<!-- PRIMARY LOOT SELECTED -->
+<div id="lootPic"></div>
+<div id="lootName"></div>
+
+<!-- DISPLAY TRUCK ICONS -->
+<div id="mainSettings">
+    <!-- PRIMARY LOOT PRICE AND NAME -->
+    <div id="moneyLimits">
+        <div id="primaryName"></div>
+        <input id="primaryValue" type="text" class="moneyLimit">
+
+        <!-- TOTAL TAKE LIMIT -->
+        <div id="takeLimitLabel" class="moneyLimitLabel">Total Take Limit</div>
+        <input id="takeLimit" type="text" class="moneyLimit">
+
+        <!-- CUT LIMIT -->
+        <div id="cutLimitLabel" class="moneyLimitLabel">Cut Limit</div>
+        <input id="cutLimit" type="text" class="moneyLimit">
+
+        <!-- el rubio safe -->
+        <div id="elRubioSafe" title="Want to take El Rubio's office safe?">☑</div>
+    </div>
+
+
+    <!-- ON SITE EQUIPMENT -->
+    <div id="truck1" class="truckIcon"></div>
+    <div id="truck2" class="truckIcon"></div>
+    <div id="truck3" class="truckIcon"></div>
+    <div id="truck4" class="truckIcon"></div>
+    <div id="truck5" class="truckIcon"></div>
+
+    <div id="hook1" class="hookIcon" bit="0"></div>
+    <div id="hook2" class="hookIcon" bit="1"></div>
+    <div id="hook3" class="hookIcon" bit="2"></div>
+    <div id="hook4" class="hookIcon" bit="3"></div>
+
+    <div id="clothes1" class="clothesIcon" bit="4"></div>
+    <div id="clothes2" class="clothesIcon" bit="5"></div>
+    <div id="clothes3" class="clothesIcon" bit="6"></div>
+    <div id="clothes4" class="clothesIcon" bit="7"></div>
+
+    <div id="cutters1" class="cuttersIcon" bit="8"></div>
+    <div id="cutters2" class="cuttersIcon" bit="9"></div>
+    <div id="cutters3" class="cuttersIcon" bit="10"></div>
+    <div id="cutters4" class="cuttersIcon" bit="11"></div>
+
+    <!-- SECONDARY LOOT SPOTS  -->
+    <!--  AIRSTRIP -->
+    <div id="hangarTopA" class="lootSpot" bit="0"></div>
+    <div id="hangarTopB" class="lootSpot" bit="1"></div>
+    <div id="hangarLowA" class="lootSpot" bit="2"></div>
+    <div id="hangarLowB" class="lootSpot" bit="3"></div>
+    <div id="airstripA" class="lootSpot" bit="4"></div>
+    <div id="airstripB" class="lootSpot" bit="5"></div>
+
+    <!-- NORTH DOCK -->
+    <div id="northDockLongShedA" class="lootSpot" bit="6"></div>
+    <div id="northDockLongShedB" class="lootSpot" bit="7"></div>
+
+    <div id="northDockLockedShedA" class="lootSpot" bit="8"></div>
+    <div id="northDockLockedShedB" class="lootSpot" bit="9"></div>
+    <div id="northDockLockedShedC" class="lootSpot" bit="10"></div>
+
+    <div id="northDockShedA" class="lootSpot" bit="11"></div>
+    <div id="northDockShedB" class="lootSpot" bit="12"></div>
+
+    <!-- WEED FARM -->
+    <div id="weedFarmA" class="lootSpot" bit="13"></div>
+    <div id="weedFarmB" class="lootSpot" bit="14"></div>
+
+    <!-- CENTRAL SHED -->
+    <div id="centralShedA" class="lootSpot" bit="15"></div>
+    <div id="centralShedB" class="lootSpot" bit="16"></div>
+
+    <!-- MAIN DOCK SHEDS -->
+    <div id="mainDockEastShedA" class="lootSpot" bit="17"></div>
+    <div id="mainDockEastShedB" class="lootSpot" bit="18"></div>
+
+    <div id="mainDockLargeShedA" class="lootSpot" bit="19"></div>
+    <div id="mainDockLargeShedB" class="lootSpot" bit="20"></div>
+    <div id="mainDockLargeShedC" class="lootSpot" bit="21"></div>
+
+    <div id="mainDockWestShedA" class="lootSpot" bit="22"></div>
+    <div id="mainDockWestShedB" class="lootSpot" bit="23"></div>
+
+    <!-- DISPLAY PLAYER CUT CALCULATOR -->
+    <div id="playerCutContainer">
+        <div class="playerMoney"><span></span><span></span></div>
+        <div class="playerMoney"><span></span><span></span></div>
+        <div class="playerMoney"><span></span><span></span></div>
+        <div class="playerMoney"><span></span><span></span></div>
+        <span id="totalCut"></span>
+    </div>
+</div>
+
+<div id="mapButton"></div>
+
+<div id="compoundSettings" class="compoundContracted">
+    <div id="compoundMap"></div>
+    <div id="northA" class="lootSpot" bit="0"></div>
+    <div id="northB" class="lootSpot" bit="1"></div>
+    <div id="centralA" class="lootSpot" bit="2"></div>
+    <div id="centralB" class="lootSpot" bit="3"></div>
+    <div id="southA" class="lootSpot" bit="4"></div>
+    <div id="southB" class="lootSpot" bit="5"></div>
+    <div id="basementA" class="lootSpot" bit="6"></div>
+    <div id="basementB" class="lootSpot" bit="7"></div>
+
+    <div id="paintingNorth" class="paintingSpot" bit="0"></div>
+    <div id="paintingCentral" class="paintingSpot" bit="1"></div>
+    <div id="paintingSouth" class="paintingSpot" bit="2"></div>
+    <div id="paintingOfficeA" class="paintingSpot" bit="3"></div>
+    <div id="paintingOfficeB" class="paintingSpot" bit="4"></div>
+    <div id="paintingBasementA" class="paintingSpot" bit="5"></div>
+    <div id="paintingBasementB" class="paintingSpot" bit="6"></div>
+</div>
+
+<!-- secondary loot selector -->
+<div id="compoundSecondaryLootSelector" class="secondaryLootSelector hidden">
+    <div class="lootOption emptyOption"><span>Empty</span></div>
+    <div class="lootOptionSeparator"></div>
+    <div class="lootOption goldOption"><span>Gold</span></div>
+    <div class="lootOptionSeparator"></div>
+    <div class="lootOption cashOption"><span>Cash</span></div>
+    <div class="lootOption weedOption"><span>Weed</span></div>
+    <div class="lootOption cokeOption"><span>Coke</span></div>
+</div>
+
+<div id="islandSecondaryLootSelector" class="secondaryLootSelector hidden">
+    <div class="lootOption emptyOption"><span>Empty</span></div>
+    <div class="lootOptionSeparator"></div>
+    <div class="lootOption cashOption"><span>Cash</span></div>
+    <div class="lootOption weedOption"><span>Weed</span></div>
+    <div class="lootOption cokeOption"><span>Coke</span></div>
+    <div class="lootOptionSeparator"></div>
+    <div class="lootOption goldOption"><span>Gold</span></div>
+</div>
+
+<div id="compoundSelectorOverlay" class="secondarySelectorOverlay hidden"></div>
+<div id="islandSelectorOverlay" class="secondarySelectorOverlay hidden"></div>
+
+<!-- COPY AND DOWNLOAD BUTTONS -->
+<div id="stattextContainer">
+    <div id="stattextLabel">stat.txt:</div>
+    <div id="copyButton" class="statTextButton">copy to clipboard</div>
+    <div id="downloadButton" class="statTextButton">download</div>
+    <div id="displayButton" class="statTextButton">display</div>
+</div>
+
+<!-- DISABLE CUSTOM VALUES -->
+<div id="defaultLootPlacement" class="usingCustomPrices">Use Default Prices</div>
+
+<!-- HARD MODE INDICATOR -->
+<div id="hardModeButton" class="hardOff"></div>
+
+<!-- stat.txt display div -->
+<div class="statTextViewer hidden" contenteditable="true"></div>
+<div class="textViewOverlay hidden"></div>

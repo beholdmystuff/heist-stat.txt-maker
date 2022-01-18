@@ -229,8 +229,12 @@
             <div class="cayo"><div class="logo"></div></div>
             <div class="contract"><div class="logo"></div></div>
         </div>
+        <div class="frame"></div>
     </body>
+    <script type="text/javascript" src="js/doomsday.js"></script>
+    <script type="text/javascript" src="js/casino.js"></script>
     <script type="text/javascript" src="js/cayo.js"></script>
+    <script type="text/javascript" src="js/contract.js"></script>
     <script type="text/javascript">
         /*
             setup heist selection cards
@@ -269,7 +273,7 @@
 
             contractCard.classList.remove("contracted");
         });
-        doomsdayCard.addEventListener("click", openDoomsdayFrame);
+        doomsdayCard.addEventListener("click", doomsday.openFrame);
 
         /* CASINO CARD */
         casinoCard.addEventListener("mouseover", function(event)
@@ -299,7 +303,7 @@
 
             contractCard.classList.remove("contracted");
         });
-        casinoCard.addEventListener("click", openCasinoFrame);
+        casinoCard.addEventListener("click", casino.openFrame);
 
         /* CAYO CARD */
         cayoCard.addEventListener("mouseover", function(event)
@@ -327,7 +331,7 @@
 
             contractCard.classList.remove("contracted");
         });
-        cayoCard.addEventListener("click", openCayoFrame);
+        cayoCard.addEventListener("click", cayo.open);
 
         /* CONTRACT CARD */
         contractCard.addEventListener("mouseover", function(event)
@@ -356,14 +360,6 @@
 
             contractCard.classList.remove("expanded");
         });
-        contractCard.addEventListener("click", openContractFrame);
-
-
-        /* LOAD */
-        function openDoomsdayFrame(event){};
-        function openCasinoFrame(event){};
-        function openCayoFrame(event){};
-        function openContractFrame(event){};
-
+        contractCard.addEventListener("click", contract.openFrame);
     </script>
 </html>
