@@ -36,7 +36,7 @@
                 background-color: transparent;
                 margin-right: 0.5vw;
             }
-            .card .doomsday .logo, .card .casino .logo, .card .cayo .logo, .card .contract .logo
+            .card .doomsday .logo, .card .casino .logo, .card .cayo .logo, .card .contract .logo, .footer.apartment .logo, .footer.robbery .logo
             {
                 transition: background 0.35s ease-in-out;
                 width: inherit;
@@ -60,7 +60,6 @@
                 background-position: 50% 40%;
                 background-size: 50vw;
                 z-index: 3;
-                filter: grayscale(80%);
             }
             .card .doomsday.expanded
             {
@@ -79,7 +78,6 @@
             .card .doomsday .logo
             {
                 background-image: url("img/doomsday/logo.png");
-                display: none;
             }
             .card .doomsday.expanded .logo
             {
@@ -181,6 +179,7 @@
                 background-position: 50% 50%;
                 background-size: 80%;
             }
+
             /* CONTRACT */
             .card .contract
             {
@@ -188,7 +187,7 @@
                 background-position: 90% -40%;
                 background-size: 50vw;
                 z-index: 1;
-                filter: grayscale(80%);
+                filter: grayscale(85%);
             }
             .card .contract.contracted
             {
@@ -208,22 +207,104 @@
             }
             .card .contract .logo
             {
+                /* hidden logo */
+                display: none;
                 background-image: url("img/contract/logo.png");
                 background-position: 32% 50%;
-                display: none;
             }
             .card .contract.contracted .logo
             {
                 background-position: 50% 50%;
                 background-size: 80%;
             }
-        </style>
-        <style media="screen" component="Cayo Perico configuration screen.">
-            .cayoFrame
+
+            /* APARTMENT CARD */
+            .footer.classic
             {
-                border: 1px solid red;
-                width: 100%;
-                height: 100%;
+                width: 50vw;
+                height: 9vw;
+                position: absolute;
+                overflow: hidden;
+                clip-path: polygon(40% 30%, 80% 30%, 100% 100%, 0 100%, 0 0);
+                white-space: nowrap;
+                bottom: 0px;
+                left: 0px;
+                background-image: url("img/classic/card.jpg");
+                background-position: 50% 5%;
+                background-size: 52vw;
+                z-index: 3;
+                transition: width ease-in-out 0.2s, height ease-in-out 0.2s, clip-path ease-in-out 0.2s,
+                            margin ease-in-out 0.2s, background ease-in-out 0.2s;
+                cursor: pointer;
+                z-index: 0;
+            }
+            .footer.classic:hover
+            {
+                height: 40vw;
+                width: 60vw;
+                clip-path: polygon(40% 30%, 80% 30%, 100% 100%, 0 100%, 0 0);
+                background-position: 100% 1%;
+                background-size: 80vw;
+                background-repeat: no-repeat;
+                z-index: 1;
+            }
+            .footer.classic .logo
+            {
+                background-image: url("img/classic/logo.png");
+                background-size: 7vw;
+                background-position: 1vw 0.9vw;
+                width: inherit;
+                height: inherit;
+                background-repeat: no-repeat;
+            }
+            .footer.classic:hover .logo
+            {
+                background-position: 70% 80%;
+                background-size: 17vw;
+            }
+
+            /* robbery CARD */
+            .footer.robbery
+            {
+                width: 50vw;
+                height: 9vw;
+                position: absolute;
+                overflow: hidden;
+                clip-path: polygon(20% 30%, 60% 30%, 100% 0%, 100% 100%, 0% 100%);
+                white-space: nowrap;
+                bottom: 0px;
+                right: 0px;
+                background-image: url(img/robbery/card.jpg);
+                background-position: 0% 65%;
+                background-size: 60vw;
+                z-index: 3;
+                transition: width ease-in-out 0.2s, height ease-in-out 0.2s, clip-path ease-in-out 0.2s, margin ease-in-out 0.2s, background ease-in-out 0.2s;
+                cursor: pointer;
+                z-index: 0;
+            }
+            .footer.robbery:hover
+            {
+                height: 40vw;
+                width: 60vw;
+                clip-path: polygon(25% 30%, 60% 30%, 100% 0%, 100% 100%, 0% 100%);
+                background-position: 100% 55%;
+                background-size: 60vw;
+                background-repeat: no-repeat;
+                z-index: 1;
+            }
+            .footer.robbery .logo
+            {
+                background-image: url("img/robbery/logo.png");
+                background-size: 8vw;
+                background-position: 41.3vw 1.1vw;
+                width: inherit;
+                height: inherit;
+                background-repeat: no-repeat;
+            }
+            .footer.robbery:hover .logo
+            {
+                background-position: 60% 80%;
+                background-size: 17vw;
             }
         </style>
     </head>
@@ -234,12 +315,9 @@
             <div class="cayo"><div class="logo"></div></div>
             <div class="contract"><div class="logo"></div></div>
         </div>
-        <div class="frame"></div>
+        <!-- <div class="footer classic"><div class="logo"></div></div> -->
+        <!-- <div class="footer robbery"><div class="logo"></div></div> -->
     </body>
-    <script type="text/javascript" src="js/doomsday.js"></script>
-    <script type="text/javascript" src="js/casino.js"></script>
-    <script type="text/javascript" src="js/cayo.js"></script>
-    <script type="text/javascript" src="js/contract.js"></script>
     <script type="text/javascript">
         /* URLS */
         let urls =
@@ -247,7 +325,9 @@
             doomsday: "https://beholdmystuff.github.io/doomsday-stat.txt-maker/",
             casino: "https://beholdmystuff.github.io/casino-stat.txt-maker/",
             cayo: "https://beholdmystuff.github.io/perico-stattext-maker/",
-            contract: "https://beholdmystuff.github.io/contract-stat.txt-maker/"
+            contract: "https://beholdmystuff.github.io/contract-stat.txt-maker/",
+            classic: "https://beholdmystuff.github.io/classic-heist-stat.txt-maker/",
+            robbery: "https://beholdmystuff.github.io/robbery-stat.txt-maker/"
         };
 
         /*
@@ -257,6 +337,8 @@
         let casinoCard = document.querySelector(".card .casino");
         let cayoCard = document.querySelector(".card .cayo");
         let contractCard = document.querySelector(".card .contract");
+        let classicCard = document.querySelector(".footer.classic");
+        let robberyCard = document.querySelector(".footer.robbery");
 
         /* DOOMSDAY CARD */
         doomsdayCard.addEventListener("mouseover", function(event)
@@ -289,7 +371,7 @@
         });
         doomsdayCard.addEventListener("click", function(event)
         {
-            // window.location = urls.doomsday;
+            window.location = urls.doomsday;
         });
 
         /* CASINO CARD */
@@ -351,41 +433,50 @@
 
             contractCard.classList.remove("contracted");
         });
-        cayoCard.addEventListener("click", function(event)
-        {
-            window.location = urls.cayo;
-        });
+        // cayoCard.addEventListener("click", function(event)
+        // {
+        //     window.location = urls.cayo;
+        // });
 
         /* CONTRACT CARD */
-        contractCard.addEventListener("mouseover", function(event)
-        {
-            doomsdayCard.classList.add("contracted");
-            doomsdayCard.classList.remove("expanded");
+        // contractCard.addEventListener("mouseover", function(event)
+        // {
+        //     doomsdayCard.classList.add("contracted");
+        //     doomsdayCard.classList.remove("expanded");
+        //
+        //     casinoCard.classList.add("contracted");
+        //     casinoCard.classList.add("left");
+        //
+        //     cayoCard.classList.add("contracted");
+        //     cayoCard.classList.add("left");
+        //
+        //     contractCard.classList.add("expanded");
+        //     contractCard.classList.remove("contracted");
+        // });
+        // contractCard.addEventListener("mouseout", function(event)
+        // {
+        //     doomsdayCard.classList.remove("contracted");
+        //
+        //     casinoCard.classList.remove("contracted");
+        //     casinoCard.classList.remove("left");
+        //
+        //     cayoCard.classList.remove("contracted");
+        //     cayoCard.classList.remove("left");
+        //
+        //     contractCard.classList.remove("expanded");
+        // });
+        // contractCard.addEventListener("click", function(event)
+        // {
+        //     window.location = urls.contract;
+        // });
 
-            casinoCard.classList.add("contracted");
-            casinoCard.classList.add("left");
-
-            cayoCard.classList.add("contracted");
-            cayoCard.classList.add("left");
-
-            contractCard.classList.add("expanded");
-            contractCard.classList.remove("contracted");
-        });
-        contractCard.addEventListener("mouseout", function(event)
-        {
-            doomsdayCard.classList.remove("contracted");
-
-            casinoCard.classList.remove("contracted");
-            casinoCard.classList.remove("left");
-
-            cayoCard.classList.remove("contracted");
-            cayoCard.classList.remove("left");
-
-            contractCard.classList.remove("expanded");
-        });
-        contractCard.addEventListener("click", function(event)
-        {
-            // window.location = urls.contract;
-        });
+        // classicCard.addEventListener("click", function(event)
+        // {
+        //     window.location = urls.classic;
+        // });
+        // robberyCard.addEventListener("click", function(event)
+        // {
+        //     window.location = urls.robbery;
+        // });
     </script>
 </html>
